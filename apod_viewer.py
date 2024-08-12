@@ -4,7 +4,7 @@ import apod_desktop
 # Initialize the image cache
 apod_desktop.init_apod_cache()
 
-# TODO: Create the GUI
+# Create the GUI
 root = Tk()
 root.geometry('600x400')
 root.title("NASA APOD Viewer")
@@ -38,7 +38,7 @@ def dd_and_set_apod_img():
     else:
         print("Failed to download APOD image")
 
-apod_button = Button(button_frame, text="Download and Set APOD Image", command=dd_and_set_apod_img)
+apod_button = Button(button_frame, text="Download and Set APOD Image", command=download_and_set_apod_image)
 apod_button.pack(side=LEFT, padx=10)
 
 # Create a button to quit the application
@@ -47,6 +47,5 @@ def quit_app():
 
 quit_button = Button(button_frame, text="Quit", command=quit_app)
 quit_button.pack(side=RIGHT, padx=10)
-
 
 root.mainloop()

@@ -5,6 +5,7 @@ import requests
 from datetime import date
 
 def main():
+    # TODO: Add code to test the functions in this module
     apod_date = date.today()
     apod_info = get_apod_info(apod_date)
     if apod_info:
@@ -13,7 +14,6 @@ def main():
         print(f"APOD Image URL: {apod_image_url}")
     else:
         print("Failed to retrieve APOD info.")
-    return
 
 def get_apod_info(apod_date):
     """Gets information from the NASA API for the Astronomy 
@@ -28,10 +28,10 @@ def get_apod_info(apod_date):
     # TODO: Complete the function body
     # Hint: The APOD API uses query string parameters: https://requests.readthedocs.io/en/latest/user/quickstart/#passing-parameters-in-urls
     # Hint: Set the 'thumbs' parameter to True so the info returned for video APODs will include URL of the video thumbnail image 
-    api_key = "bi1VQC81pOhB3xfVZWceWp6AU6l9zmcfvepVnfb5"
+    api_key = "kHjw2LOGMfPzY6AVyZuk3sTuHOJNB95IGb1TGpuF"
     base_url = "https://api.nasa.gov/planetary/apod"
     params = {
-        "sha256": api_key,
+        "api_key": api_key,
         "date": apod_date.isoformat() if isinstance(apod_date, date) else apod_date,
         "thumbs": True
     }
@@ -60,7 +60,7 @@ def get_apod_image_url(apod_info_dict):
     elif apod_info_dict["media_type"] == "video":
         return apod_info_dict["thumbnail_url"]
     else:
-        return "Media type is unknown"
+        return print("Media type is unknown ")
 
 if __name__ == '__main__':
     main()

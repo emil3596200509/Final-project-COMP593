@@ -4,20 +4,6 @@ Library of useful functions for working with images.
 import requests
 def main():
     # TODO: Add code to test the functions in this module
-    image_url = "https://www.nasa.gov/image-of-the-day/"
-    image_data = download_image(image_url)
-    if image_data:
-        image_path = "image_of_the_day.jpg"
-        if save_image_file(image_data, image_path):
-            print(f"Image saved to {image_path}")
-            if set_desktop_background_image(image_path):
-                print("Desktop background image set successfully")
-            else:
-                print("Failed to set desktop background image")
-        else:
-            print("Failed to save image file")
-    else:
-        print("Failed to download image")
     return
 
 def download_image(image_url):
@@ -32,6 +18,7 @@ def download_image(image_url):
         bytes: Binary image data, if succcessful. None, if unsuccessful.
     """
     # TODO: Complete function body
+    image_url = "https://www.nasa.gov/image-of-the-day/"
     try:
         response = requests.get(image_url)
         if response.status_code == 200:
@@ -41,8 +28,7 @@ def download_image(image_url):
     except requests.exceptions.RequestException as e:
         print(f"Error: {e}")
         return None
-
-
+    
 def save_image_file(image_data, image_path):
     """Saves image data as a file on disk.
     
@@ -81,6 +67,7 @@ def set_desktop_background_image(image_path):
     except Exception as e:
         print(f"Error: {e}")
         return False
+
 
 def scale_image(image_size, max_size=(800, 600)):
     """Calculates the dimensions of an image scaled to a maximum width
