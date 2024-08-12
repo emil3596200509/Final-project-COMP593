@@ -4,7 +4,7 @@ COMP 593 - Final Project
 Description: 
   Downloads NASA's Astronomy Picture of the Day (APOD) from a specified date
   and sets it as the desktop background image.
-"""Group: Emil, Alen, krishna,shanad"""
+Group: Emil, Alen, krishna,shanad
 
 Usage:
   python apod_desktop.py [apod_date]
